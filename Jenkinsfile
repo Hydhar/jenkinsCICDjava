@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.27' // Make sure this matches your Jenkins Maven installation name
+        maven 'Maven 3.27' 
     }
 
     stages {
