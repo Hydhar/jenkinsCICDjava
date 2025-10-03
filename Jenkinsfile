@@ -34,7 +34,8 @@ pipeline {
  stage('Test Report') {
  steps {
  echo 'Publishing JUnit test results...'
- junit '**/target/surefire-reports/*.xml'
+ junit '**/junk.xml'
+ junit '**/targetsurface-report.xml'
  }
  }
  }
