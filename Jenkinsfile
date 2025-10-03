@@ -1,8 +1,8 @@
-pipeline {
+ipeline {
     agent any
 
     tools {
-        maven 'Maven 3.27' 
+        maven 'Maven 3.9.11' 
     }
 
     stages {
