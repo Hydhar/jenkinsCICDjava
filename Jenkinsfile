@@ -20,22 +20,28 @@ pipeline {
  stage('Build') {
  steps {
  echo 'Building the project using Maven...'
+ catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
  bat 'mvn clean install'
+ }
  }
  }
  
  stage('Test') {
  steps {
  echo 'Running unit tests...'
+ catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
  bat 'mvn test'
+ }
  }
  }
  
  stage('Test Report') {
  steps {
  echo 'Publishing JUnit test results...'
- junit '**/junk.xml'
- junit '**/targetsurface-report.xml'
+ //junit '**/junk.xml'
+ //junit '**/targetsurface-report.xml'
+ bat 'dir /s target\\surefire-reports'
+ junit '**/target/surefire-reports/*.xml'
  }
  }
  }
