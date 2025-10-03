@@ -1,14 +1,14 @@
-ipeline {
+pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.9.11' 
+        maven 'Maven 3.9.11'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Hydhar/jenkinsCICDjava.git'
+                git url: 'https://github.com/Hydhar/jenkinsCICDjava.git'
             }
         }
 
